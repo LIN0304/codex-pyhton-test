@@ -11,6 +11,18 @@ class TestTicTacToe(unittest.TestCase):
         board = ['X', 'X', 'X'] + [None] * 6
         self.assertEqual(tictactoe.check_winner(board), 'X')
 
+    def test_check_winner_columns(self):
+        board = ['O', None, None,
+                 'O', None, None,
+                 'O', None, None]
+        self.assertEqual(tictactoe.check_winner(board), 'O')
+
+    def test_check_winner_diagonals(self):
+        board = ['X', None, None,
+                 None, 'X', None,
+                 None, None, 'X']
+        self.assertEqual(tictactoe.check_winner(board), 'X')
+
     def test_is_draw(self):
         board = ['X', 'O', 'X', 'X', 'O', 'O', 'O', 'X', 'X']
         self.assertTrue(tictactoe.is_draw(board))
